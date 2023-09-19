@@ -1,0 +1,12 @@
+<div class="card mb-5" style="width: 18rem;">
+    <img [src]="product.images[0]" class="card-img-top" [alt]="product.title">
+    <div class="card-body">
+      <div [ngStyle]="{ color: product.stock === 0 ? 'red' : 'green' }">
+        {{ product.stock === 0 ? 'Out of Stock' : 'In Stock' }}
+      </div>
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="pt-1">{{ product.price.toString()  | currency:'EGP'}}</p>
+      <a class="btn btn-outline-dark" (click)="redirectToDetails(product.id)">Details</a>
+      <a class="btn btn-outline-dark ms-3" (click)="addToCart(product)">add to cart</a>
+    </div>
+</div>
